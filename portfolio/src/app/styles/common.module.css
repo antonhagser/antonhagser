@@ -1,0 +1,12 @@
+.headerContainer {
+    max-width: 46rem;
+    width: 100%;
+}
+
+.contentTitle {
+    color: rgb(28, 25, 23);
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 600;
+    padding-bottom: 1rem;
+}

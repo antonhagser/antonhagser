@@ -1,0 +1,68 @@
+.social {
+    display: flex;
+    flex-direction: row;
+
+    /* Reset style */
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+}
+
+.socialTitle {
+    color: rgb(17 24 39);
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+
+    line-height: 1.5;
+}
+
+.socialValue {
+    color: rgb(75 85 99);
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem; /* 16px */
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.socialLogo {
+    width: 3rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    fill: inherit;
+}
+
+.socialLogoInner {
+    width: 2rem;
+    height: 100%;
+}
+
+.social:hover .socialTitle .socialValue .socialLogo {
+    /* Darker color on hover */
+    color: rgb(17 24 39) !important;
+}
+
+.social:hover .socialInfo .socialValue {
+    text-decoration: underline;
+}
+
+.socialTitleWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    gap: 0.25rem;
+}
+
+.socialTitleVerifiedIcon {
+    width: 1rem;
+    height: 1rem;
+
+    color: rgb(29 161 242);
+}

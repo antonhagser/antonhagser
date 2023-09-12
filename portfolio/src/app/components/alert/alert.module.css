@@ -1,0 +1,82 @@
+.alert {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.fadeOut {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.alert:last-child {
+    margin-bottom: 2rem;
+}
+
+.alertError {
+    background-color: rgb(254, 242, 242);
+    border: 1px solid rgb(254, 226, 226);
+    color: rgb(185, 28, 28);
+}
+
+.alertErrorStroke {
+    stroke: rgb(185, 28, 28);
+}
+
+.alertInfo {
+    background-color: rgb(240, 244, 255);
+    border: 1px solid rgb(217, 229, 255);
+    color: rgb(49, 130, 206);
+}
+
+.alertInfoStroke {
+    stroke: rgb(49, 130, 206);
+}
+
+.alertWarning {
+    background-color: rgb(255, 251, 235);
+    border: 1px solid rgb(255, 230, 153);
+    color: rgb(237, 137, 54);
+}
+
+.alertWarningStroke {
+    stroke: rgb(237, 137, 54);
+}
+
+.alertSuccess {
+    background-color: rgb(240, 255, 244);
+    border: 1px solid rgb(198, 239, 206);
+    color: rgb(16, 185, 129);
+}
+
+.alertSuccessStroke {
+    stroke: rgb(16, 185, 129);
+}
+
+.alertButtonWithIcon {
+    border: none;
+
+    background-color: transparent;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+
+    display: flex;
+    align-items: center;
+}
+
+.alertButtonIcon {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.5rem;
+}
