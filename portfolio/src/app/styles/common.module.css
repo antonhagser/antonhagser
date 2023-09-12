@@ -10,3 +10,13 @@
     font-weight: 600;
     padding-bottom: 1rem;
 }
+
+.contentText {
+    color: rgb(107, 114, 128);
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+    font-weight: 400;
+    padding-bottom: 1rem;
+
+    margin-bottom: 2rem;
+}

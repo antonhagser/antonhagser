@@ -1,0 +1,25 @@
+.dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+    transform: translateY(-2rem);
+}
+
+.dot {
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    background-color: #f5f5f5;
+    opacity: 0.5;
+}
+
+.dotSelected {
+    opacity: 1;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}

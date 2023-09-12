@@ -1,0 +1,92 @@
+/* Contact Form Styles */
+
+.contactForm {
+    width: 100%;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.6rem;
+}
+
+.label {
+    color: rgb(17 24 39);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.input,
+.textArea,
+.select {
+    background-color: rgb(255, 255, 255);
+    background-color: transparent;
+    padding: 10px 12px;
+    border: 1px solid rgb(229, 231, 235);
+    border-radius: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input:hover,
+.textArea:hover,
+.select:hover {
+    border-color: rgb(17 24 39);
+}
+
+.input:focus,
+.textArea:focus,
+.select:focus {
+    border-color: rgb(107, 114, 128);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.2);
+}
+
+.submit {
+    background-color: rgb(17 24 39);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 0.5rem;
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    align-self: flex-end;
+}
+
+.submit:hover {
+    background-color: rgb(107, 114, 128);
+}
+
+/* Contact Information Styles */
+
+.contactInfo {
+    padding: 20px;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.contactInfo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: rgb(17 24 39);
+}
+
+.contactInfo p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: rgb(107, 114, 128);
+}
+
+.contactInfo a {
+    color: rgb(17 24 39);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contactInfo a:hover {
+    color: rgb(107, 114, 128);
+}

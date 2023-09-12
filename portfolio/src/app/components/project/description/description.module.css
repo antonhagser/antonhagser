@@ -1,0 +1,52 @@
+.projectDescription {
+    width: 100%;
+    margin-top: 2rem;
+    border-radius: 0.8rem;
+}
+
+.projectDescription h3,
+.projectDescription h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    color: #333;
+}
+
+.projectDescription p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.projectDescription a {
+    color: #4caf50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.projectDescription a:hover {
+    color: #388e3c;
+}
+
+.projectDescription img {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.projectDescription ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.projectDescription li {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+}

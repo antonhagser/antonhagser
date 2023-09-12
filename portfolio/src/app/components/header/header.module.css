@@ -30,12 +30,21 @@
 .headerTitle {
     font-size: 1.5rem; /* 24px */
     line-height: 2rem; /* 32px */
+    color: rgb(41, 37, 36);
 }
+
+.headerLogo:hover .headerTitle,
+.headerLogo:hover .headerImage {
+    filter: brightness(1.2);
+    color: rgb(71, 67, 66);
+}
+
 
 .headerLinks {
     display: flex;
     gap: 1rem;
 }
+
 
 .navLinkRoot {
     text-decoration: none;

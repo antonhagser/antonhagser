@@ -37,7 +37,12 @@
 }
 
 .projectsLinkInner {
-    width: 2rem;
+    /* The button is a "link" to the next page, some blue color, link icon */
+    color: rgb(0, 102, 255);
+    text-decoration: none;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
+    font-weight: 400;
 }
 
 .socialsList {

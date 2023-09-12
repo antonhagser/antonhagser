@@ -2,13 +2,14 @@ import styles from './page.module.css';
 import commonStyles from './styles/common.module.css';
 import clsx from 'clsx';
 
-import randomMonkey from '../../public/temp.png';
 import solarIcon from '../../public/solar.png';
 import cdnIcon from '../../public/cdn.png';
 import authIcon from '../../public/auth.png';
 
 import Project from './components/project/project.component';
-import AlertProvider from './components/alert/alertprovider.component';
+import AlertProvider, {
+    Alert,
+} from './components/alert/alertprovider.component';
 import Social from './components/social/social.component';
 import Footer from './components/footer/footer.component';
 import Header from './components/header/header.component';
@@ -31,7 +32,7 @@ export default function Home() {
                         {
                             id: '1',
                             alert: 'This website is under construction.',
-                            color: 'error',
+                            color: 'warning',
                         },
                     ]}
                 />
@@ -78,14 +79,14 @@ export default function Home() {
                             isNew={false}
                         />
                     </ul>
-                    {/* <div className={styles.projectsLink}>
+                    <div className={styles.projectsLink}>
                         <Link
                             href="/projects"
                             className={styles.projectsLinkInner}
                         >
                             <ArrowRightIcon />
                         </Link>
-                    </div> */}
+                    </div>
                 </div>
             </section>
             <section
@@ -109,7 +110,7 @@ export default function Home() {
                         <Social
                             type="full"
                             brand="LinkedIn"
-                            value="@antonhagser"
+                            value="@anton-hagser"
                             url="https://www.linkedin.com/in/anton-hagser/"
                         />
                     </ul>

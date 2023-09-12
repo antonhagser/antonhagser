@@ -41,7 +41,7 @@ export default function Footer({ className }: Props) {
                     <Social
                         type="icon"
                         brand="LinkedIn"
-                        value="@antonhagser"
+                        value="@anton-hagser"
                         url="https://www.linkedin.com/in/anton-hagser/"
                         className={styles.footerSocial}
                     />
