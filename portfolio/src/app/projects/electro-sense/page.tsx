@@ -1,4 +1,5 @@
-import Image from 'next/image';
+"use client";
+
 import clsx from 'clsx';
 
 import Footer from '../../components/footer/footer.component';
@@ -7,8 +8,6 @@ import Header from '../../components/header/header.component';
 import commonStyles from '../../styles/common.module.css';
 import styles from './page.module.css';
 
-import Carousel from '@/app/components/carousel/carousel.component';
-
 import electroSense1 from '../../../../public/electro-sense-1.png';
 import electroSense2 from '../../../../public/electro-sense-2.png';
 import electroSense3 from '../../../../public/electro-sense-3.png';
@@ -16,9 +15,15 @@ import Link from 'next/link';
 import ProjectCarousel from '../../components/project/carousel/carousel.component';
 import ProjectHeader from '../../components/project/header/header.component';
 import ProjectDescription from '@/app/components/project/description/description.component';
+import TechStackItem from '../../components/project/tech/tech.component';
+
+import { useState } from 'react';
+import { Tech } from '../../components/project/tech/tech.component';
 
 export default function ElectroSense() {
     const images = [electroSense1, electroSense2, electroSense3];
+
+    const [expandedTech, setExpandedTech] = useState<Tech | null>(null);
 
     return (
         <>
@@ -28,6 +33,16 @@ export default function ElectroSense() {
             >
                 <ProjectCarousel images={images} />
                 <ProjectHeader title="ElectroSense" hasDemo={true} />
+                <div className={styles.techStackContainer}>
+                    <h3 className={styles.techStackTitle}>Technologies Used</h3>
+                    <ul className={styles.techStackItems}>
+                        <TechStackItem tech="Rust" />
+                        <TechStackItem tech="C++" />
+                        <TechStackItem tech="Kubernetes" />
+                        <TechStackItem tech="InfluxDB" />
+                        <TechStackItem tech="Grafana" />
+                    </ul>
+                </div>
                 <ProjectDescription>
                     <h3>Electricity Production & Usage Monitoring System</h3>
                     <p>

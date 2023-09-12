@@ -1,6 +1,10 @@
-.project {
-    /* box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-        0 4px 6px -4px rgb(0 0 0 / 0.1); */
+.projectLink {
+    display: block;
+
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+    font-size: inherit;
 
     border: 1px solid rgb(229, 231, 235);
     border-radius: 0.5rem;
@@ -9,9 +13,10 @@
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 16px;
+
 }
 
-.project:hover {
+.projectLink:hover {
     background-color: rgb(249 250 251);
     cursor: pointer;
 }
@@ -111,10 +116,6 @@
     line-height: 1.25rem; /* 20px */
 }
 
-.projectsListItemLink {
-    text-decoration: none;
-}
-
 .projectAbout {
     display: flex;
     flex-direction: column;
@@ -124,4 +125,5 @@
 .projectButtonIcon {
     display: flex;
     align-items: center;
+    color: rgb(17 24 39);
 }

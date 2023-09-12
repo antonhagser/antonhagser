@@ -2,10 +2,9 @@ import Link from 'next/link';
 import styles from './project.module.css';
 import Image from 'next/image';
 
-import tempMonkey from '../../../../public/temp.png';
-import arrowRight from '../../../../public/icon-arrow-right.svg';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import clsx from 'clsx';
+import ChevronRightIcon from '@/app/icons/chevron-right';
 
 interface Props {
     title: string;
@@ -27,18 +26,16 @@ export default function Project({
 }: Props) {
     return (
         <li className={clsx(styles.project, className)}>
-            <Link href={link} className={styles.projectsListItemLink}>
+            <Link href={link} className={styles.projectLink}>
                 <div className={styles.projectRootLayout}>
                     <div className={styles.projectInfo}>
-                        <div>
-                            <Image
-                                className={styles.projectIcon}
-                                src={icon}
-                                alt={description}
-                                width={100}
-                                height={100}
-                            />
-                        </div>
+                        <Image
+                            className={styles.projectIcon}
+                            src={icon}
+                            alt={description}
+                            width={100}
+                            height={100}
+                        />
                         <div className={styles.projectAbout}>
                             <div className={styles.projectAboutTitle}>
                                 <h3
@@ -49,7 +46,12 @@ export default function Project({
                                 </h3>
                                 {isNew && (
                                     <div className={styles.projectNewLabel}>
-                                        <label htmlFor="projectTitle" className={styles.projectNewLabelInner}>
+                                        <label
+                                            htmlFor="projectTitle"
+                                            className={
+                                                styles.projectNewLabelInner
+                                            }
+                                        >
                                             NEW
                                         </label>
                                     </div>
@@ -59,7 +61,7 @@ export default function Project({
                         </div>
                     </div>
                     <div className={styles.projectButtonIcon}>
-                        <Image src={arrowRight} alt={'Follow us on Twitter'} />
+                        <ChevronRightIcon />
                     </div>
                 </div>
             </Link>

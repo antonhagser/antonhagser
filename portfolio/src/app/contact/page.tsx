@@ -7,7 +7,12 @@ import Footer from '../components/footer/footer.component';
 import styles from './page.module.css';
 import commonStyles from '../styles/common.module.css';
 
-export default function NotFound() {
+export default function Contact() {
+    async function handleSubmit(formData: FormData) {
+        'use server';
+        console.log(formData)
+    }
+
     return (
         <>
             <Header />
@@ -25,7 +30,7 @@ export default function NotFound() {
                     to collaborate, have a question, or just want to say hello,
                     drop me a message.
                 </p>
-                <form action="" className={styles.form}>
+                <form action={handleSubmit} className={styles.form}>
                     <div className={clsx(styles.formGroup)}>
                         <label htmlFor="name" className={styles.label}>
                             Name

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styles from './header.module.css';
 import clsx from 'clsx';
+import ExternalLinkIcon from '@/app/icons/external-link-icon';
 
 interface Props {
     title: string;
@@ -25,9 +26,10 @@ export default function ProjectHeader({
                 {hasDemo && (
                     <Link
                         className={styles.projectDemoButton}
-                        href={demoURL ? demoURL : ''}
+                        href={demoURL ? demoURL : '#'}
                     >
-                        Launch Demo
+                        <ExternalLinkIcon className={styles.projectDemoIcon} />
+                        <span>Launch Demo</span>
                     </Link>
                 )}
             </div>
