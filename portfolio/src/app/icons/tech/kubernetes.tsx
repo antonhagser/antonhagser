@@ -1,5 +1,3 @@
-import { BrandColor } from "@/app/components/project/tech/tech.component";
-
 interface Props {
     className?: string;
 }

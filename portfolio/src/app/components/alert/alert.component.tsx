@@ -59,6 +59,7 @@ export default function Alert({ alert, onDelete }: AlertProps) {
                 onClick={() => {
                     setIsDeleting(true);
                 }}
+                name='Close Alert'
             >
                 <CloseIcon
                     className={clsx(

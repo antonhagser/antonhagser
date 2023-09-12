@@ -42,24 +42,28 @@ export default function Social({ type, brand, url, value, className }: Props) {
     }
 
     return (
-        <Link
-            href={url}
-            className={clsx(styles.social, className)}
-            target="blank"
-            rel="noopener noreferrer"
-        >
-            <div className={styles.socialLogo}>
-                {getBrandIcon(styles.socialLogoInner)}
-            </div>
-            {type === 'full' && (
-                <div className={styles.socialInfo}>
-                    <div className={styles.socialTitleWrapper}>
-                        <h3 className={styles.socialTitle}>{brand}</h3>
-                        <VerifiedIcon className={styles.socialTitleVerifiedIcon} />
-                    </div>
-                    <p className={styles.socialValue}>{value}</p>
+        <li>
+            <Link
+                href={url}
+                className={clsx(styles.social, className)}
+                target="blank"
+                rel="noopener noreferrer"
+            >
+                <div className={styles.socialLogo}>
+                    {getBrandIcon(styles.socialLogoInner)}
                 </div>
-            )}
-        </Link>
+                {type === 'full' && (
+                    <div className={styles.socialInfo}>
+                        <div className={styles.socialTitleWrapper}>
+                            <h3 className={styles.socialTitle}>{brand}</h3>
+                            <VerifiedIcon
+                                className={styles.socialTitleVerifiedIcon}
+                            />
+                        </div>
+                        <p className={styles.socialValue}>{value}</p>
+                    </div>
+                )}
+            </Link>
+        </li>
     );
 }
