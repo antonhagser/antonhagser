@@ -1,0 +1,35 @@
+.button {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+
+    /* Reset button */
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    /* Reset link */
+    text-decoration: none;
+    color: inherit;
+
+    /* Green color represents demo */
+    color: #4caf50;
+    background-color: #e8f5e9;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.button:hover {
+    background-color: #e0f2f1;
+}
+
+.icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    stroke-width: 2.5;
+}

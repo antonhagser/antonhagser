@@ -62,6 +62,16 @@
     stroke: rgb(16, 185, 129);
 }
 
+.alertFatal {
+    background-color: rgb(254, 242, 242);
+    border: 1px solid rgb(254, 226, 226);
+    color: rgb(185, 28, 28);
+}
+
+.alertFatalStroke {
+    stroke: rgb(185, 28, 28);
+}
+
 .alertButtonWithIcon {
     border: none;
 

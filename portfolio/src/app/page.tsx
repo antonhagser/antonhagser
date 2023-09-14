@@ -3,17 +3,17 @@ import commonStyles from './styles/common.module.css';
 import clsx from 'clsx';
 
 import solarIcon from '../../public/solar.png';
-import cdnIcon from '../../public/cdn.png';
 import authIcon from '../../public/auth.png';
+import pulseDBIcon from '../../public/pulsedb.png';
 
-import Project from './components/project/project.component';
+import InlineProject from './components/project/inline.component';
 import AlertProvider, {
     Alert,
 } from './components/alert/alertprovider.component';
 import Social from './components/social/social.component';
 import Footer from './components/footer/footer.component';
 import Header from './components/header/header.component';
-import ArrowRightIcon from './icons/arrow-right-icon';
+import ArrowRightIcon from './icons/arrow-right';
 import Link from 'next/link';
 
 export default function Home() {
@@ -57,25 +57,25 @@ export default function Home() {
                 <div className={styles.projects}>
                     <h2 className={commonStyles.contentTitle}>Projects</h2>
                     <ul className={styles.projectsList}>
-                        <Project
+                        <InlineProject
                             title="ElectroSense"
                             description="Electricity monitoring system"
                             icon={solarIcon}
                             link="/projects/electro-sense"
                             isNew={true}
                         />
-                        <Project
+                        <InlineProject
                             title="Hapsy"
                             description="Efficient, secure, and user-friendly authentication"
                             icon={authIcon}
                             link="/projects/hapsy"
                             isNew={false}
                         />
-                        <Project
-                            title="Concrete"
-                            description="Globally accessible content delivery system"
-                            icon={cdnIcon}
-                            link="/projects/concrete"
+                        <InlineProject
+                            title="PulseDB"
+                            description="In memory database like redis"
+                            icon={pulseDBIcon}
+                            link="/projects/pulsedb"
                             isNew={false}
                         />
                     </ul>

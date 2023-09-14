@@ -6,16 +6,26 @@ import Footer from '../components/footer/footer.component';
 
 import styles from './page.module.css';
 import commonStyles from '../styles/common.module.css';
+import AlertProvider from '../components/alert/alertprovider.component';
 
 export default function Contact() {
     async function handleSubmit(formData: FormData) {
         'use server';
-        console.log(formData)
+        console.log(formData);
     }
 
     return (
         <>
             <Header />
+            <AlertProvider className={commonStyles.headerContainer}
+                knownAlerts={[
+                    {
+                        id: '1',
+                        alert: 'Contact form not yet implemented please contact me at: anton.hagser@epsidel.se',
+                        color: 'error',
+                    },
+                ]}
+            />
             <section
                 className={clsx(
                     commonStyles.headerContainer,

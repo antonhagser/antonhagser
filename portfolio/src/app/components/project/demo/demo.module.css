@@ -1,0 +1,10 @@
+.demo {
+    display: none;
+    
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.expanded {
+    display: block !important;
+}

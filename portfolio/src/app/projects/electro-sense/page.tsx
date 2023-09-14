@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from 'clsx';
 
 import Footer from '../../components/footer/footer.component';
@@ -11,38 +9,35 @@ import styles from './page.module.css';
 import electroSense1 from '../../../../public/electro-sense-1.png';
 import electroSense2 from '../../../../public/electro-sense-2.png';
 import electroSense3 from '../../../../public/electro-sense-3.png';
-import Link from 'next/link';
+
 import ProjectCarousel from '../../components/project/carousel/carousel.component';
 import ProjectHeader from '../../components/project/header/header.component';
 import ProjectDescription from '@/app/components/project/description/description.component';
-import TechStackItem from '../../components/project/tech/tech.component';
 
-import { useState } from 'react';
-import { Tech } from '../../components/project/tech/tech.component';
+import TechStackItem from '../../components/project/tech/tech.component';
+import TechStack from '@/app/components/project/techstack/stack.component';
+import Project from '@/app/components/project/project.component';
+import ProjectHeaderButton from '@/app/components/project/header/button.component';
 
 export default function ElectroSense() {
     const images = [electroSense1, electroSense2, electroSense3];
 
-    const [expandedTech, setExpandedTech] = useState<Tech | null>(null);
-
     return (
         <>
             <Header />
-            <section
-                className={clsx(commonStyles.headerContainer, styles.project)}
-            >
+            <Project className={commonStyles.headerContainer}>
                 <ProjectCarousel images={images} />
-                <ProjectHeader title="ElectroSense" hasDemo={true} />
-                <div className={styles.techStackContainer}>
-                    <h3 className={styles.techStackTitle}>Technologies Used</h3>
-                    <ul className={styles.techStackItems}>
-                        <TechStackItem tech="Rust" />
-                        <TechStackItem tech="C++" />
-                        <TechStackItem tech="Kubernetes" />
-                        <TechStackItem tech="InfluxDB" />
-                        <TechStackItem tech="Grafana" />
-                    </ul>
-                </div>
+                <ProjectHeader title="ElectroSense" >
+                    <ProjectHeaderButton icon="Github" url='https://github.com/antonhagser/home' />
+                    <ProjectHeaderButton value='Launch Demo' />
+                </ProjectHeader>
+                <TechStack>
+                    <TechStackItem tech="Rust" />
+                    <TechStackItem tech="C++" />
+                    <TechStackItem tech="Kubernetes" />
+                    <TechStackItem tech="InfluxDB" />
+                    <TechStackItem tech="Grafana" />
+                </TechStack>
                 <ProjectDescription>
                     <h3>Electricity Production & Usage Monitoring System</h3>
                     <p>
@@ -106,7 +101,7 @@ export default function ElectroSense() {
                         central role in grid stability and optimization.
                     </p>
                 </ProjectDescription>
-            </section>
+            </Project>
             <Footer />
         </>
     );

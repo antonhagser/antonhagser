@@ -1,6 +1,6 @@
 'use client';
 
-import CloseIcon from '@/app/icons/close-icon';
+import CloseIcon from '@/app/icons/close';
 import styles from './alert.module.css';
 import clsx from 'clsx';
 import { Alert, AlertProps } from './alertprovider.component';
@@ -30,6 +30,10 @@ export default function Alert({ alert, onDelete }: AlertProps) {
                     return styles.alertWarning;
                 case 'success':
                     return styles.alertSuccess;
+                case 'fatal':
+                    return styles.alertFatal;
+                default:
+                    return styles.alertInfo;
             }
         } else {
             switch (alert.color) {
@@ -41,6 +45,8 @@ export default function Alert({ alert, onDelete }: AlertProps) {
                     return styles.alertWarningStroke;
                 case 'success':
                     return styles.alertSuccessStroke;
+                case 'fatal':
+                    return styles.alertFatalStroke;
             }
         }
     }
@@ -59,7 +65,7 @@ export default function Alert({ alert, onDelete }: AlertProps) {
                 onClick={() => {
                     setIsDeleting(true);
                 }}
-                name='Close Alert'
+                name="Close Alert"
             >
                 <CloseIcon
                     className={clsx(

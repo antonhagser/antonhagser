@@ -1,10 +1,10 @@
-import LinkedinLogo from '@/app/icons/linkedin-icon';
+import LinkedinLogo from '@/app/icons/linkedin';
 import styles from './social.module.css';
-import GithubLogo from '@/app/icons/github-icon';
-import EmailIcon from '@/app/icons/email-icon';
+import EmailIcon from '@/app/icons/email';
 import Link from 'next/link';
 import clsx from 'clsx';
-import VerifiedIcon from '../../icons/verified-icon';
+import VerifiedIcon from '../../icons/verified';
+import GitHubIcon from '@/app/icons/tech/github';
 
 type Type = 'full' | 'icon';
 type Brands = 'GitHub' | 'LinkedIn' | 'Email';
@@ -22,7 +22,7 @@ export default function Social({ type, brand, url, value, className }: Props) {
         switch (brand) {
             case 'GitHub':
                 return (
-                    <GithubLogo
+                    <GitHubIcon
                         className={clsx(styles.socialLogo, brandClassName)}
                     />
                 );
