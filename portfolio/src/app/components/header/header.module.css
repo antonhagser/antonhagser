@@ -61,3 +61,19 @@
 .navLink:hover {
     color: rgb(75, 85, 99);
 }
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        gap: 0rem;
+    }
+
+    .headerLinks {
+        display: flex;
+        flex-direction: column;
+    }
+}
