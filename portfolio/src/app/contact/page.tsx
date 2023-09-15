@@ -21,7 +21,7 @@ export default function Contact() {
                 knownAlerts={[
                     {
                         id: '1',
-                        alert: 'Contact form not yet implemented please contact me at: anton.hagser@epsidel.se',
+                        alert: 'Contact form not yet implemented, please contact me at: anton.hagser@epsidel.se',
                         color: 'error',
                     },
                 ]}
