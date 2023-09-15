@@ -29,4 +29,22 @@ jobs:
                   context: ./portfolio/
                   file: ./portfolio/Dockerfile
                   push: true
-                  tags: harbor.antonhagser.se/library/antonhagser-portfolio:latest
+                  tags: harbor.antonhagser.se/library/antonhagser-portfolio:${{ github.sha }}
+
+            - name: Clone manifests repository
+              run: |
+                  git clone https://${{ secrets.MANIFESTS_PAT }}@github.com/antonhagser/manifests.git
+                  cd manifests
+
+            - name: Update Kubernetes manifest
+              run: |
+                  sed -i "s|harbor.antonhagser.se/library/antonhagser-portfolio:.*|harbor.antonhagser.se/library/antonhagser-portfolio:${GITHUB_SHA}|g" manifests/portfolio/deployment.yml
+
+            - name: Commit and push updated manifest
+              run: |
+                  cd manifests
+                  git config user.name "GitHub Actions"
+                  git config user.email "actions@github.com"
+                  git add portfolio/deployment.yml
+                  git commit -m "Update image tag to ${GITHUB_SHA}"
+                  git push https://${{ secrets.MANIFESTS_PAT }}@github.com/antonhagser/manifests.git
