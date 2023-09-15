@@ -11,7 +11,8 @@ interface Props {
     description: string;
     icon: string | StaticImport;
     link: string;
-    isNew: boolean;
+    isNew?: boolean;
+    hasDemo?: boolean;
 
     className?: string;
 }
@@ -22,6 +23,7 @@ export default function InlineProject({
     icon,
     link,
     isNew = false,
+    hasDemo = false,
     className,
 }: Props) {
     return (
@@ -45,15 +47,21 @@ export default function InlineProject({
                                     {title}
                                 </h3>
                                 {isNew && (
-                                    <div className={styles.projectNewLabel}>
-                                        <label
-                                            htmlFor="projectTitle"
-                                            className={
-                                                styles.projectNewLabelInner
-                                            }
+                                    <div className={styles.projectLabel}>
+                                        <span
+                                            className={styles.projectLabelInner}
                                         >
                                             NEW
-                                        </label>
+                                        </span>
+                                    </div>
+                                )}
+                                {hasDemo && (
+                                    <div className={clsx(styles.projectLabel, styles.projectLabelGold)}>
+                                        <span
+                                            className={styles.projectLabelInner}
+                                        >
+                                            DEMO
+                                        </span>
                                     </div>
                                 )}
                             </div>

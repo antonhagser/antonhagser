@@ -53,17 +53,11 @@ export default function Projects() {
                     />
                     <InlineProject
                         title="Shorty"
-                        description="URL shortener"
+                        description="A dead simple URL shortener"
                         icon={urlIcon}
                         link="/projects/shorty"
                         isNew={false}
-                    />
-                    <InlineProject
-                        title="CDN"
-                        description="Globally accessible content delivery system"
-                        icon={cdnIcon}
-                        link="/projects/concrete"
-                        isNew={false}
+                        hasDemo={true}
                     />
                     <InlineProject
                         title="antonhagser.se"
@@ -71,6 +65,7 @@ export default function Projects() {
                         icon={portfolioIcon}
                         link="/projects/antonhagser"
                         isNew={false}
+                        hasDemo={true}
                     />
                 </ul>
             </section>

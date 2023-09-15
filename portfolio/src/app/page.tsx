@@ -69,14 +69,12 @@ export default function Home() {
                             description="Efficient, secure, and user-friendly authentication"
                             icon={authIcon}
                             link="/projects/hapsy"
-                            isNew={false}
                         />
                         <InlineProject
                             title="PulseDB"
                             description="In memory database like redis"
                             icon={pulseDBIcon}
                             link="/projects/pulsedb"
-                            isNew={false}
                         />
                     </ul>
                     <div className={styles.projectsLink}>

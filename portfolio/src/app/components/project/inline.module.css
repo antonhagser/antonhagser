@@ -13,7 +13,6 @@
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 16px;
-
 }
 
 .projectLink:hover {
@@ -54,40 +53,61 @@
     font-weight: 500;
 }
 
-.projectNewLabel {
-    background-color: rgb(219, 234, 254);
-    color: rgb(107, 114, 128);
+.projectLabel {
+    background-color: rgb(239, 244, 254); /* Lighter shade of blue */
+    color: rgb(127, 134, 148); /* Lighter text color */
+
+    opacity: 0.8; /* Adjust as needed */
 
     border-radius: 0.25rem;
 
     margin-top: 0.15rem;
     margin-left: 0.5rem;
 
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-
-    font-size: 0.85rem;
-    font-weight: 400;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-top: 0.08rem;
+    padding-bottom: 0.08rem;
+    
+    font-size: 0.8rem; /* Adjust as needed */
+    font-weight: 500; /* Making it bolder */
 
     transition: background-color 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-.projectNewLabel:hover {
+.projectLabel:hover {
     cursor: pointer;
     background-color: rgb(209, 213, 219);
 }
 
-.projectNewLabel:hover::after {
+.projectLabel:hover::after {
     content: '';
     position: absolute;
     top: -50%;
     left: -100%;
     width: 200%;
     height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 100%,
+        rgba(255, 255, 255, 0.2) 75%
+    );
+    animation: shimmer 1.5s infinite;
+}
+
+.projectLabelGold {
+    background-color: rgb(248, 240, 200); /* Lighter shade of gold */
+    color: rgb(135, 123, 78); /* Lighter text color */
+}
+
+.projectLabelGold:hover {
+    background-color: rgb(232, 214, 160); /* Slightly darker shade of the muted gold */
+}
+
+.projectLabelGold:hover::after {
     background: linear-gradient(
         45deg,
         rgba(255, 255, 255, 0.2) 25%,
@@ -106,7 +126,7 @@
     }
 }
 
-.projectNewLabelInner:hover {
+.projectLabelInner:hover {
     cursor: pointer;
 }
 
