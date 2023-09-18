@@ -90,3 +90,10 @@
 .contactInfo a:hover {
     color: rgb(107, 114, 128);
 }
+
+.cloudflare {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

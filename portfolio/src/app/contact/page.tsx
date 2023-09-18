@@ -152,18 +152,6 @@ export default function Contact() {
                     to collaborate, have a question, or just want to say hello,
                     drop me a message.
                 </p>
-                <Script id="cf-turnstile-callback">
-                    {`window.onloadTurnstileCallback = function () {
-                      window.turnstile.render('#cloudflare-widget', {
-                        sitekey: '${cloudflareSiteKey}',
-                      })
-                    }`}
-                </Script>
-                <Script
-                    src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
-                    async={true}
-                    defer={true}
-                />
                 <form action={handleSubmit} className={styles.form}>
                     <div className={clsx(styles.formGroup)}>
                         <label htmlFor="name" className={styles.label}>
@@ -214,7 +202,12 @@ export default function Contact() {
                             className={styles.textArea}
                         ></textarea>
                     </div>
-                    <div id="cloudflare-widget" className="checkbox" />
+                    <CloudflareTurnstile siteKey={cloudflareSiteKey} />
+                    <Script
+                        src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+                        async={true}
+                        defer={true}
+                    />
                     <div className={clsx(styles.formGroup)}>
                         <button type="submit" className={styles.submit}>
                             Send
@@ -234,5 +227,22 @@ export default function Contact() {
             </section>
             <Footer />
         </>
+    );
+}
+
+function CloudflareTurnstile({ siteKey }: { siteKey: string }) {
+    useEffect(() => {
+        if (window.turnstile) {
+            window.turnstile.render('#cloudflare-widget', {
+                sitekey: siteKey,
+            });
+        }
+    }, [siteKey]);
+
+    return (
+        <div
+            id="cloudflare-widget"
+            className={clsx('checkbox', styles.cloudflare)}
+        />
     );
 }
