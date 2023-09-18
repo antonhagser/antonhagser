@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Header from '../components/header/header.component';
 import Footer from '../components/footer/footer.component';
@@ -119,6 +119,18 @@ export default function Contact() {
         }
     }
 
+    const [cloudflareSiteKey, setCloudflareSiteKey] = useState('');
+
+    useEffect(() => {
+        async function fetchConfig() {
+            const response = await fetch('/api/cloudflare');
+            const data = await response.json();
+            setCloudflareSiteKey(data.cloudflareSiteKey);
+        }
+
+        fetchConfig();
+    }, []);
+
     return (
         <>
             <Header />
@@ -143,7 +155,7 @@ export default function Contact() {
                 <Script id="cf-turnstile-callback">
                     {`window.onloadTurnstileCallback = function () {
                       window.turnstile.render('#cloudflare-widget', {
-                        sitekey: '${process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY}',
+                        sitekey: '${cloudflareSiteKey}',
                       })
                     }`}
                 </Script>
