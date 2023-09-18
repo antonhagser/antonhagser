@@ -1,20 +1,20 @@
+import clsx from 'clsx';
+import Link from 'next/link';
+
 import styles from './page.module.css';
 import commonStyles from './styles/common.module.css';
-import clsx from 'clsx';
 
 import solarIcon from '../../public/solar.png';
 import authIcon from '../../public/auth.png';
 import pulseDBIcon from '../../public/pulsedb.png';
 
 import InlineProject from './components/project/inline.component';
-import AlertProvider, {
-    Alert,
-} from './components/alert/alertprovider.component';
+import AlertProvider from './components/alert/alertprovider.component';
+
 import Social from './components/social/social.component';
 import Footer from './components/footer/footer.component';
 import Header from './components/header/header.component';
 import ArrowRightIcon from './icons/arrow-right';
-import Link from 'next/link';
 
 export default function Home() {
     return (
@@ -27,15 +27,7 @@ export default function Home() {
                     styles.content
                 )}
             >
-                <AlertProvider
-                    knownAlerts={[
-                        {
-                            id: '1',
-                            alert: 'This website is under construction.',
-                            color: 'warning',
-                        },
-                    ]}
-                />
+                <AlertProvider knownAlerts={[]} />
             </section>
             <section
                 className={clsx(
@@ -46,9 +38,11 @@ export default function Home() {
             >
                 <h2 className={styles.helloTitle}>
                     Hi, I&apos;m Anton Hagsér.
+                    {/* Hej! 👋 */}
                 </h2>
                 <h3 className={styles.helloAboutMe}>
                     Full-stack developer with expertise in Rust, TypeScript, Go.
+                    {/* Full-stack utvecklare med expertis inom Rust, TypeScript, Go. */}
                 </h3>
             </section>
             <section
