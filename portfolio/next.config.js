@@ -3,7 +3,10 @@ const nextConfig = {
     output: 'standalone',
     experimental: {
         serverActions: true,
-    },
+    }
 };
 
-module.exports = nextConfig;
+module.exports = async (phase, { defaultConfig }) => {
+    const config = nextConfig;
+    return config;
+};

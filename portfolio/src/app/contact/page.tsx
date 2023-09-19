@@ -11,8 +11,9 @@ import commonStyles from '../styles/common.module.css';
 import AlertProvider, {
     Alert,
 } from '../components/alert/alertprovider.component';
-import Script from 'next/script';
 import trySendContactForm from './content';
+import { getCloudflareSiteKey } from './utils';
+import Script from 'next/script';
 
 type RenderParameters = {
     sitekey: string;
@@ -119,18 +120,6 @@ export default function Contact() {
         }
     }
 
-    const [cloudflareSiteKey, setCloudflareSiteKey] = useState('');
-
-    useEffect(() => {
-        async function fetchConfig() {
-            const response = await fetch('/api/cloudflare');
-            const data = await response.json();
-            setCloudflareSiteKey(data.cloudflareSiteKey);
-        }
-
-        fetchConfig();
-    }, []);
-
     return (
         <>
             <Header />
@@ -152,6 +141,18 @@ export default function Contact() {
                     to collaborate, have a question, or just want to say hello,
                     drop me a message.
                 </p>
+                <Script id="cf-turnstile-callback">
+                    {`window.onloadTurnstileCallback = function () {
+                      window.turnstile.render('#cloudflare-widget', {
+                        sitekey: '${getCloudflareSiteKey()}',
+                      })
+                    }`}
+                </Script>
+                <Script
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
+                    async={true}
+                    defer={true}
+                />
                 <form action={handleSubmit} className={styles.form}>
                     <div className={clsx(styles.formGroup)}>
                         <label htmlFor="name" className={styles.label}>
@@ -202,11 +203,9 @@ export default function Contact() {
                             className={styles.textArea}
                         ></textarea>
                     </div>
-                    <CloudflareTurnstile siteKey={cloudflareSiteKey} />
-                    <Script
-                        src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
-                        async={true}
-                        defer={true}
+                    <div
+                        id="cloudflare-widget"
+                        className={clsx('checkbox', styles.cloudflare)}
                     />
                     <div className={clsx(styles.formGroup)}>
                         <button type="submit" className={styles.submit}>
@@ -227,22 +226,5 @@ export default function Contact() {
             </section>
             <Footer />
         </>
-    );
-}
-
-function CloudflareTurnstile({ siteKey }: { siteKey: string }) {
-    useEffect(() => {
-        if (window.turnstile) {
-            window.turnstile.render('#cloudflare-widget', {
-                sitekey: siteKey,
-            });
-        }
-    }, [siteKey]);
-
-    return (
-        <div
-            id="cloudflare-widget"
-            className={clsx('checkbox', styles.cloudflare)}
-        />
     );
 }

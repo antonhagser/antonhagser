@@ -2,6 +2,7 @@
 
 import { headers } from 'next/headers';
 import { sendMail } from '../services/mail';
+import { getCloudflareSecretKey } from './utils';
 
 interface MailData {
     reason: string;
@@ -30,10 +31,7 @@ export default async function trySendContactForm(
 
     // Check if turnstile response is valid
     const form = new URLSearchParams();
-    form.append(
-        'secret',
-        process.env.CLOUDFLARE_TURNSTILE_SECRET_KEY as string
-    );
+    form.append('secret', getCloudflareSecretKey());
     form.append('response', turnstileResponse);
     form.append('remoteip', ip as string);
 
@@ -44,6 +42,13 @@ export default async function trySendContactForm(
 
     if (!result.ok) {
         console.log('Turnstile response is not ok');
+        return false;
+    }
+
+    const outcome = await result.json();
+    if (outcome.success !== true) {
+        console.log('Turnstile response is not successful');
+        console.log("Outcome: ", outcome);
         return false;
     }
 

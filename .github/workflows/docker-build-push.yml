@@ -27,6 +27,8 @@ jobs:
               uses: docker/build-push-action@v2
               with:
                   context: ./portfolio/
+                  build-args: |
+                    "NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY=${{ secrets.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE_KEY }}"
                   file: ./portfolio/Dockerfile
                   push: true
                   tags: harbor.antonhagser.se/library/antonhagser-portfolio:${{ github.sha }}
