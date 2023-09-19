@@ -20,10 +20,19 @@
 }
 
 .shortURL {
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    text-wrap: wrap;
+}
+
+.shortURL > a {
+    text-decoration: none;
+    word-break: break-all;
+    margin-right: 1rem;
 }
 
 .shortURLButtonHolder {

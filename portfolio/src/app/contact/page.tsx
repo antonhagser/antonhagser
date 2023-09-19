@@ -14,6 +14,7 @@ import AlertProvider, {
 import trySendContactForm from './content';
 import { getCloudflareSiteKey } from './utils';
 import Script from 'next/script';
+import SubmitButton from '../components/buttons/submit/submit.component';
 
 type RenderParameters = {
     sitekey: string;
@@ -46,6 +47,10 @@ export default function Contact() {
     const [isLoading, setIsLoading] = useState(false);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        if (isLoading) {
+            return;
+        }
+
         // Prevent default form submission
         event.preventDefault();
 
@@ -63,6 +68,8 @@ export default function Contact() {
         await Promise.all([handleSubmitInner(formData), minimumSpinnerTime]);
 
         setIsLoading(false);
+
+        window.scrollTo(0, 0);
     }
 
     async function handleSubmitInner(formData: FormData) {
@@ -239,14 +246,7 @@ export default function Contact() {
                         className={clsx('checkbox', styles.cloudflare)}
                     />
                     <div className={clsx(styles.formGroup)}>
-                        {/* TODO: Implement spinning button */}
-                        <button type="submit" className={styles.submit}>
-                            {isLoading ? (
-                                <span className={styles.spinner}></span>
-                            ) : (
-                                'Send'
-                            )}
-                        </button>
+                        <SubmitButton value="Send" isLoading={isLoading} />
                     </div>
                 </form>
                 <div className={styles.contactInfo}>

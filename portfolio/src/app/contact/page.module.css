@@ -43,45 +43,6 @@
     box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.2);
 }
 
-.submit {
-    background-color: rgb(17 24 39);
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 0.5rem;
-    width: 100%;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-    align-self: flex-end;
-
-    height: 40px;
-}
-
-.submit:hover {
-    background-color: rgb(107, 114, 128);
-}
-
-.spinner {
-    display: inline-block;
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Lighter border for the spinner */
-    border-top: 2px solid white; /* Top border to create the spinning effect */
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 /* Contact Information Styles */
 
 .contactInfo {

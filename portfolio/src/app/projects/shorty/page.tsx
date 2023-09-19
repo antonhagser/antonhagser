@@ -28,6 +28,7 @@ import Link from 'next/link';
 import CopyIcon from '../../icons/copy';
 import TrashIcon from '@/app/icons/trash';
 import CheckIcon from '@/app/icons/check';
+import SubmitButton from '@/app/components/buttons/submit/submit.component';
 
 export default function ElectroSense() {
     const images = [shorty1];
@@ -65,7 +66,33 @@ export default function ElectroSense() {
         setShortenedURLs(getShortenedURLs());
     }, []);
 
-    async function formSubmit(formData: FormData) {
+    const [isLoading, setIsLoading] = useState(false);
+
+    async function formSubmit(event: React.FormEvent<HTMLFormElement>) {
+        if (isLoading) {
+            return;
+        }
+
+        // Prevent default form submission
+        event.preventDefault();
+
+        // Get the form data
+        const formData = new FormData(event.currentTarget);
+
+        setIsLoading(true);
+
+        // Start the minimum spinner display time
+        const minimumSpinnerTime = new Promise((resolve) =>
+            setTimeout(resolve, 200)
+        );
+
+        // Wait for both the handleSubmitInner and the minimumSpinnerTime to complete
+        await Promise.all([formSubmitInner(formData), minimumSpinnerTime]);
+
+        setIsLoading(false);
+    }
+
+    async function formSubmitInner(formData: FormData) {
         if (typeof window === 'undefined') {
             return new Map();
         }
@@ -187,7 +214,7 @@ export default function ElectroSense() {
                     className={styles.expandedDemo}
                     isExpanded={isDemoExpanded}
                 >
-                    <form action={formSubmit}>
+                    <form onSubmit={formSubmit}>
                         <div className={styles.expandedDemoFormGroup}>
                             <input
                                 name="url"
@@ -195,12 +222,8 @@ export default function ElectroSense() {
                                 className={styles.expandedDemoInput}
                                 placeholder="https://example.com"
                             />
-                            <button
-                                type="submit"
-                                className={styles.expandedDemoButton}
-                            >
-                                Shorten
-                            </button>
+
+                            <SubmitButton value='Shorten' isLoading={isLoading} />
                         </div>
                     </form>
                     {shortenedURLs.size > 0 && (
