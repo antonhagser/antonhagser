@@ -36,7 +36,36 @@ declare global {
 export default function Contact() {
     const [alerts, setAlerts] = useState<Alert[]>([]);
 
-    async function handleSubmit(formData: FormData) {
+    // Form fields
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [reason, setReason] = useState<string>('recruitment');
+    const [message, setMessage] = useState<string>('');
+
+    // Form submit button
+    const [isLoading, setIsLoading] = useState(false);
+
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        // Prevent default form submission
+        event.preventDefault();
+
+        // Get the form data
+        const formData = new FormData(event.currentTarget);
+
+        setIsLoading(true);
+
+        // Start the minimum spinner display time
+        const minimumSpinnerTime = new Promise((resolve) =>
+            setTimeout(resolve, 200)
+        );
+
+        // Wait for both the handleSubmitInner and the minimumSpinnerTime to complete
+        await Promise.all([handleSubmitInner(formData), minimumSpinnerTime]);
+
+        setIsLoading(false);
+    }
+
+    async function handleSubmitInner(formData: FormData) {
         // Check that all fields are filled in
         if (
             !formData.get('name') ||
@@ -47,25 +76,13 @@ export default function Contact() {
             setAlerts([
                 {
                     id: '1',
-                    alert: 'All fields must be filled in',
+                    alert: 'All fields must be filled in.',
                     color: 'error',
                 },
             ]);
 
             return;
         }
-
-        const data = formData.keys();
-
-        for (const key of data) {
-            console.log(key);
-        }
-
-        // Get the form data
-        const name = formData.get('name')?.toString();
-        const email = formData.get('email')?.toString();
-        const reason = formData.get('reason')?.toString() ?? 'unknown';
-        const message = formData.get('message')?.toString();
 
         // Cloudflare
         const cf = formData.get('cf-turnstile-response') as string;
@@ -75,7 +92,7 @@ export default function Contact() {
             setAlerts([
                 {
                     id: '1',
-                    alert: 'Invalid email address provided',
+                    alert: 'Invalid email address provided.',
                     color: 'error',
                 },
             ]);
@@ -88,7 +105,7 @@ export default function Contact() {
             setAlerts([
                 {
                     id: '1',
-                    alert: 'Please include a message',
+                    alert: 'Please include a message.',
                     color: 'error',
                 },
             ]);
@@ -105,10 +122,16 @@ export default function Contact() {
             setAlerts([
                 {
                     id: '1',
-                    alert: 'Message sent successfully',
+                    alert: 'Message sent successfully!',
                     color: 'success',
                 },
             ]);
+
+            // Clear the form
+            setName('');
+            setEmail('');
+            setReason('recruitment');
+            setMessage('');
         } else {
             setAlerts([
                 {
@@ -153,7 +176,7 @@ export default function Contact() {
                     async={true}
                     defer={true}
                 />
-                <form action={handleSubmit} className={styles.form}>
+                <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={clsx(styles.formGroup)}>
                         <label htmlFor="name" className={styles.label}>
                             Name
@@ -162,6 +185,8 @@ export default function Contact() {
                             type="text"
                             id="name"
                             name="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             className={styles.input}
                         />
                     </div>
@@ -173,6 +198,8 @@ export default function Contact() {
                             type="email"
                             name="email"
                             id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className={styles.input}
                         />
                     </div>
@@ -183,6 +210,8 @@ export default function Contact() {
                         <select
                             name="reason"
                             id="reason"
+                            value={reason}
+                            onChange={(e) => setReason(e.target.value)}
                             className={clsx(styles.input, styles.select)}
                         >
                             <option value="recruitment">Recruitment</option>
@@ -200,6 +229,8 @@ export default function Contact() {
                             id="message"
                             cols={30}
                             rows={10}
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
                             className={styles.textArea}
                         ></textarea>
                     </div>
@@ -208,8 +239,13 @@ export default function Contact() {
                         className={clsx('checkbox', styles.cloudflare)}
                     />
                     <div className={clsx(styles.formGroup)}>
+                        {/* TODO: Implement spinning button */}
                         <button type="submit" className={styles.submit}>
-                            Send
+                            {isLoading ? (
+                                <span className={styles.spinner}></span>
+                            ) : (
+                                'Send'
+                            )}
                         </button>
                     </div>
                 </form>

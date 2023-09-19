@@ -9,11 +9,11 @@ export async function sendMail(
 ): Promise<boolean> {
     'use server';
 
+    console.log("Sending mail...")
+
     var transporter = createTransport({
         service: 'Purelymail',
         host: 'smtp.purelymail.com',
-        logger: true,
-        debug: true,
         secure: true,
         port: 465,
         auth: {
@@ -31,6 +31,8 @@ export async function sendMail(
 
     try {
         let result = await transporter.sendMail(mailOptions);
+
+        console.log("Mail sent: ", result.accepted.length > 0 ? true : false);
 
         if (result.accepted.length > 0) {
             return true;

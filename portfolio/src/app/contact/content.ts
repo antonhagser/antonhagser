@@ -17,16 +17,19 @@ export default async function trySendContactForm(
 
     // Get client ip from cloudflare request headers
     const clientHeaders = headers();
-    const ip =
+    let ip =
         clientHeaders.get('cf-connecting-ip') ??
         clientHeaders.get('x-forwarded-for') ??
         clientHeaders.get('x-real-ip') ??
         undefined;
 
     // If the client ip is undefined, show error message
-    if (!ip) {
+    if (!ip && process.env.NODE_ENV !== 'development') {
         console.log('Client ip is undefined');
         return false;
+    } else if (process.env.NODE_ENV === 'development') {
+        console.log('Client ip is undefined, but we are in development mode');
+        ip = '127.0.0.1';
     }
 
     // Check if turnstile response is valid
@@ -48,17 +51,24 @@ export default async function trySendContactForm(
     const outcome = await result.json();
     if (outcome.success !== true) {
         console.log('Turnstile response is not successful');
-        console.log("Outcome: ", outcome);
+        console.log('Outcome: ', outcome);
         return false;
     }
 
     try {
+        if (process.env.NODE_ENV === 'development') {
+            console.log('Running in development: Email "sent" successfully...');
+            return true;
+        }
+
         // Send the mail
         await sendMail(reason, 'anton.hagser@epsidel.se', message);
 
         // Show success message
         return true;
     } catch (error) {
+        console.log('Error sending email: ', error);
+
         return false;
     }
 }

@@ -55,10 +55,31 @@
     font-weight: 500;
     transition: background-color 0.3s ease;
     align-self: flex-end;
+
+    height: 40px;
 }
 
 .submit:hover {
     background-color: rgb(107, 114, 128);
+}
+
+.spinner {
+    display: inline-block;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Lighter border for the spinner */
+    border-top: 2px solid white; /* Top border to create the spinning effect */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Contact Information Styles */
@@ -90,6 +111,8 @@
 .contactInfo a:hover {
     color: rgb(107, 114, 128);
 }
+
+/* Cloudflare turnstile */
 
 .cloudflare {
     margin-bottom: 1rem;
