@@ -3,7 +3,11 @@ import Image from 'next/image';
 import Carousel from '../../carousel/carousel.component';
 
 import styles from './carousel.module.css';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
+import {
+    StaticImageData,
+    StaticImport,
+} from 'next/dist/shared/lib/get-img-props';
+import sharp from 'sharp';
 
 interface Props {
     images: (string | StaticImport)[];
@@ -24,9 +28,10 @@ export default function ProjectCarousel({ images }: Props) {
                                 <div className={styles.carouselSlide} key={i}>
                                     <Image
                                         src={src}
-                                        width={4536}
-                                        height={3062}
+                                        width={1920}
+                                        height={1296}
                                         className={styles.carouselImage}
+                                        placeholder="blur"
                                         alt="alt"
                                     />
                                 </div>
