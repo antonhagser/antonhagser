@@ -60,12 +60,6 @@ const Carousel = ({ className, children, ...options }: Props) => {
                 selectedIndex={selectedIndex}
                 onClick={(id) => emblaApi?.scrollTo(id, true)}
             />
-            {/* <CarouselControls
-                canScrollNext={canScrollNext}
-                canScrollPrev={canScrollPrev}
-                onNext={() => emblaApi?.scrollNext()}
-                onPrev={() => emblaApi?.scrollPrev()}
-            /> */}
         </>
     );
 };

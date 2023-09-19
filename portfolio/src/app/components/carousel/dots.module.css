@@ -1,9 +1,14 @@
 .dots {
+    position: absolute;
+    bottom: 0; /* This will position the dots at the bottom of the carousel container */
+    left: 50%; /* Center the dots horizontally */
+    transform: translateX(-50%) translateY(-0.8rem); /* Adjust the vertical position and center horizontally */
+    z-index: 1; /* Adjust as needed */
+
     display: flex;
     gap: 0.5rem;
     margin-top: 0.5rem;
     justify-content: center;
-    transform: translateY(-2rem);
 }
 
 .dot {

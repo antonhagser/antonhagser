@@ -22,7 +22,6 @@ export default function ProjectCarousel({ images }: Props) {
                         {images.map((src, i) => {
                             return (
                                 <div className={styles.carouselSlide} key={i}>
-                                    {/* use object-cover + fill since we don't know the height and width of the parent */}
                                     <Image
                                         src={src}
                                         width={4536}
