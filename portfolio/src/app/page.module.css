@@ -71,6 +71,12 @@
     }
 
     .socialsList {
+        /* Try to fit at least two */
+        flex-wrap: wrap;
+
+        /* Remove vertical cap but keep horizontal */
+        gap: 0.5rem 1rem;
+
         display: flex;
         flex-direction: column;
         gap: 1rem;

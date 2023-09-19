@@ -39,12 +39,10 @@
     color: rgb(71, 67, 66);
 }
 
-
 .headerLinks {
     display: flex;
     gap: 1rem;
 }
-
 
 .navLinkRoot {
     text-decoration: none;
@@ -62,18 +60,76 @@
     color: rgb(75, 85, 99);
 }
 
+.hamburger {
+    display: none; /* Initially hidden on larger screens */
+    cursor: pointer;
+
+    /* reset button */
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+    /* reset svg */
+    fill: none;
+    stroke: #000000;
+    color: #000000;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.headerLinks.open {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+@keyframes fadeInMoveDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media (max-width: 768px) {
     .header {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
+        align-items: center;
         padding-top: 2rem;
         padding-bottom: 2rem;
-        gap: 0rem;
+
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on smaller screens */
     }
 
     .headerLinks {
-        display: flex;
+        display: none; /* Initially hide the links on smaller screens */
+    }
+
+    .headerLinks.open {
+        display: flex; /* Show links when menu is open */
         flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .headerLinks.open .navLink {
+        animation: fadeInMoveDown 0.5s forwards; /* 0.5s is the duration, adjust as needed */
+        opacity: 0; /* Start with opacity 0, the animation will change it to 1 */
     }
 }

@@ -44,3 +44,15 @@
 .footerCopyright {
     color: rgb(107 114 128);
 }
+
+@media (max-width: 768px) {
+    .footerLinks {
+        /* Fit as many as you can per row */
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        
+        /* Remove vertical cap but keep horizontal */
+        gap: 0.5rem 2.5rem;
+    }
+}
