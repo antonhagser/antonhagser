@@ -26,9 +26,6 @@ export default function Footer({ className }: Props) {
                     <Link href="/contact" className={styles.footerLink}>
                         Contact
                     </Link>
-                    <Link href="/sitemap" className={styles.footerLink}>
-                        Sitemap
-                    </Link>
                 </nav>
                 <div className={styles.footerSocials}>
                     <Social
