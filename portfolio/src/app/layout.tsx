@@ -1,6 +1,6 @@
-import Script from 'next/script';
 import './globals.css';
 import type { Metadata } from 'next';
+import Referral from './components/referral/referral.component';
 
 export const metadata: Metadata = {
     title: 'Anton Hagsér',
@@ -15,13 +15,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <Script
-                    async
-                    defer
-                    src="https://antonhagser.se/locale/script.js"
-                    data-website-id="17c5d446-b3e2-48f8-a81a-504301bad0e5"
-                    data-host-url="https://umami.antonhagser.se"
-                ></Script>
+                <Referral />
                 <main>{children}</main>
             </body>
         </html>
