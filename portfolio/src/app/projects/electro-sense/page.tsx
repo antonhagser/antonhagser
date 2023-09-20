@@ -29,7 +29,6 @@ export default function ElectroSense() {
                 <ProjectCarousel images={images} />
                 <ProjectHeader title="ElectroSense" >
                     <ProjectHeaderButton icon="Github" url='https://github.com/antonhagser/home' />
-                    <ProjectHeaderButton value='Launch Demo' />
                 </ProjectHeader>
                 <TechStack>
                     <TechStackItem tech="Rust" />

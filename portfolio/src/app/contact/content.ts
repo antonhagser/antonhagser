@@ -23,6 +23,20 @@ export default async function trySendContactForm(
         clientHeaders.get('x-real-ip') ??
         undefined;
 
+    // For debug print ip
+    console.log('Client ip: ', ip);
+
+    // Print where it got the ip from
+    if (clientHeaders.get('cf-connecting-ip')) {
+        console.log('Got ip from cf-connecting-ip');
+    } else if (clientHeaders.get('x-forwarded-for')) {
+        console.log('Got ip from x-forwarded-for');
+    } else if (clientHeaders.get('x-real-ip')) {
+        console.log('Got ip from x-real-ip');
+    } else {
+        console.log('Got ip from undefined');
+    }
+
     // If the client ip is undefined, show error message
     if (!ip && process.env.NODE_ENV !== 'development') {
         console.log('Client ip is undefined');

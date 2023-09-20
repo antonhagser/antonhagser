@@ -15,6 +15,7 @@ import trySendContactForm from './content';
 import { getCloudflareSiteKey } from './utils';
 import Script from 'next/script';
 import SubmitButton from '../components/buttons/submit/submit.component';
+import { usePathname, useRouter } from 'next/navigation';
 
 type RenderParameters = {
     sitekey: string;
@@ -35,6 +36,41 @@ declare global {
 }
 
 export default function Contact() {
+    const router = usePathname();
+
+    // Render the Cloudflare scripts on router path change, to avoid cloudflare turnstile not running sometimes
+    useEffect(() => {
+        // This function will run the Cloudflare scripts
+        function runCloudflareScripts() {
+            const scriptCallback = document.createElement('script');
+            scriptCallback.id = 'cf-turnstile-callback';
+            scriptCallback.innerHTML = `
+                window.onloadTurnstileCallback = function () {
+                    window.turnstile.render('#cloudflare-widget', {
+                        sitekey: '${getCloudflareSiteKey()}',
+                    })
+                }
+            `;
+            document.body.appendChild(scriptCallback);
+
+            const scriptSrc = document.createElement('script');
+            scriptSrc.src =
+                'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
+            scriptSrc.async = true;
+            scriptSrc.defer = true;
+            document.body.appendChild(scriptSrc);
+
+            // Cleanup: remove the scripts when component is unmounted or URL changes
+            return () => {
+                document.body.removeChild(scriptCallback);
+                document.body.removeChild(scriptSrc);
+            };
+        }
+
+        runCloudflareScripts();
+    }, [router]);
+
+    // Alerts
     const [alerts, setAlerts] = useState<Alert[]>([]);
 
     // Form fields
@@ -171,18 +207,6 @@ export default function Contact() {
                     to collaborate, have a question, or just want to say hello,
                     drop me a message.
                 </p>
-                <Script id="cf-turnstile-callback">
-                    {`window.onloadTurnstileCallback = function () {
-                      window.turnstile.render('#cloudflare-widget', {
-                        sitekey: '${getCloudflareSiteKey()}',
-                      })
-                    }`}
-                </Script>
-                <Script
-                    src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback"
-                    async={true}
-                    defer={true}
-                />
                 <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={clsx(styles.formGroup)}>
                         <label htmlFor="name" className={styles.label}>

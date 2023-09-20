@@ -223,7 +223,10 @@ export default function ElectroSense() {
                                 placeholder="https://example.com"
                             />
 
-                            <SubmitButton value='Shorten' isLoading={isLoading} />
+                            <SubmitButton
+                                value="Shorten"
+                                isLoading={isLoading}
+                            />
                         </div>
                     </form>
                     {shortenedURLs.size > 0 && (
