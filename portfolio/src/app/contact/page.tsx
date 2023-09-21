@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Header from '../components/header/header.component';
 import Footer from '../components/footer/footer.component';
@@ -15,61 +15,9 @@ import trySendContactForm from './content';
 import { getCloudflareSiteKey } from './utils';
 import Script from 'next/script';
 import SubmitButton from '../components/buttons/submit/submit.component';
-import { usePathname, useRouter } from 'next/navigation';
-
-type RenderParameters = {
-    sitekey: string;
-    theme?: 'light' | 'dark';
-    callback?(token: string): void;
-};
-
-declare global {
-    interface Window {
-        onloadTurnstileCallback(): void;
-        turnstile: {
-            render(
-                container: string | HTMLElement,
-                params: RenderParameters
-            ): void;
-        };
-    }
-}
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function Contact() {
-    const router = usePathname();
-
-    // Render the Cloudflare scripts on router path change, to avoid cloudflare turnstile not running sometimes
-    useEffect(() => {
-        // This function will run the Cloudflare scripts
-        function runCloudflareScripts() {
-            const scriptCallback = document.createElement('script');
-            scriptCallback.id = 'cf-turnstile-callback';
-            scriptCallback.innerHTML = `
-                window.onloadTurnstileCallback = function () {
-                    window.turnstile.render('#cloudflare-widget', {
-                        sitekey: '${getCloudflareSiteKey()}',
-                    })
-                }
-            `;
-            document.body.appendChild(scriptCallback);
-
-            const scriptSrc = document.createElement('script');
-            scriptSrc.src =
-                'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
-            scriptSrc.async = true;
-            scriptSrc.defer = true;
-            document.body.appendChild(scriptSrc);
-
-            // Cleanup: remove the scripts when component is unmounted or URL changes
-            return () => {
-                document.body.removeChild(scriptCallback);
-                document.body.removeChild(scriptSrc);
-            };
-        }
-
-        runCloudflareScripts();
-    }, [router]);
-
     // Alerts
     const [alerts, setAlerts] = useState<Alert[]>([]);
 
@@ -265,10 +213,9 @@ export default function Contact() {
                             className={styles.textArea}
                         ></textarea>
                     </div>
-                    <div
-                        id="cloudflare-widget"
-                        className={clsx('checkbox', styles.cloudflare)}
-                    />
+                    <div className={styles.cloudflare}>
+                        <Turnstile siteKey={getCloudflareSiteKey()} />
+                    </div>
                     <div className={clsx(styles.formGroup)}>
                         <SubmitButton value="Send" isLoading={isLoading} />
                     </div>

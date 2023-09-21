@@ -42,21 +42,18 @@ export default function Projects() {
                         description="Efficient, secure, and user-friendly authentication"
                         icon={authIcon}
                         link="/projects/hapsy"
-                        isNew={false}
                     />
                     <InlineProject
                         title="PulseDB"
                         description="In memory database like redis"
                         icon={pulseDBIcon}
                         link="/projects/pulsedb"
-                        isNew={false}
                     />
                     <InlineProject
                         title="Shorty"
                         description="A dead simple URL shortener"
                         icon={urlIcon}
                         link="/projects/shorty"
-                        isNew={false}
                         hasDemo={true}
                     />
                     <InlineProject
@@ -64,8 +61,6 @@ export default function Projects() {
                         description="My personal website"
                         icon={portfolioIcon}
                         link="/projects/antonhagser"
-                        isNew={false}
-                        hasDemo={true}
                     />
                 </ul>
             </section>
