@@ -21,7 +21,7 @@ export default function Header({ className }: Props) {
     return (
         <header
             className={clsx(
-                commonStyles.headerContainer,
+                commonStyles.container,
                 styles.header,
                 className
             )}

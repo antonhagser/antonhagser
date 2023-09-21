@@ -14,7 +14,7 @@ export default function Footer({ className }: Props) {
     return (
         <footer className={className}>
             <footer
-                className={clsx(commonStyles.headerContainer, styles.footer)}
+                className={clsx(commonStyles.container, styles.footer)}
             >
                 <nav className={clsx(styles.footerLinks)}>
                     <Link href="/about" className={styles.footerLink}>

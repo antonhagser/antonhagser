@@ -193,10 +193,10 @@ export default function ElectroSense() {
         <>
             <Header />
             <AlertProvider
-                className={commonStyles.headerContainer}
+                className={commonStyles.container}
                 knownAlerts={alerts}
             />
-            <Project className={commonStyles.headerContainer}>
+            <Project className={commonStyles.container}>
                 <ProjectCarousel images={images} />
                 <ProjectHeader title="Shorty">
                     <ProjectHeaderButton

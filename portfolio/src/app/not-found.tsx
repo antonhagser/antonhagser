@@ -12,7 +12,7 @@ export default function NotFound() {
             <Header />
             <section
                 className={clsx(
-                    commonStyles.headerContainer,
+                    commonStyles.container,
                     styles.errorCodeWrapper
                 )}
             >

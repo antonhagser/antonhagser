@@ -21,7 +21,7 @@ export default function PulseDB() {
     return (
         <>
             <Header />
-            <Project className={commonStyles.headerContainer}>
+            <Project className={commonStyles.container}>
                 <ProjectCarousel images={images} />
                 <ProjectHeader title="antonhagser.se">
                     <ProjectHeaderButton

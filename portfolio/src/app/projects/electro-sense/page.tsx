@@ -25,7 +25,7 @@ export default function ElectroSense() {
     return (
         <>
             <Header />
-            <Project className={commonStyles.headerContainer}>
+            <Project className={commonStyles.container}>
                 <ProjectCarousel images={images} />
                 <ProjectHeader title="ElectroSense" >
                     <ProjectHeaderButton icon="Github" url='https://github.com/antonhagser/home' />

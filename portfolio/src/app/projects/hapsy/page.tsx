@@ -21,7 +21,7 @@ export default function ElectroSense() {
     return (
         <>
             <Header />
-            <Project className={commonStyles.headerContainer}>
+            <Project className={commonStyles.container}>
                 <ProjectCarousel images={images} />
                 <ProjectHeader title="Hapsy">
                     <ProjectHeaderButton
@@ -30,7 +30,7 @@ export default function ElectroSense() {
                     />
                     <ProjectHeaderButton
                         value="Launch Demo"
-                        url="/demo/hapsy/login"
+                        url="/projects/hapsy/demo"
                     />
                 </ProjectHeader>
                 <TechStack>
@@ -42,21 +42,33 @@ export default function ElectroSense() {
                     <TechStackItem tech="Go" />
                 </TechStack>
                 <ProjectDescription>
-                    <h3>Secure authentication and authorization service</h3>
+                    <h3>Advanced Authentication & Authorization System</h3>
                     <p>
-                        Hapsy is a secure authentication and authorization
-                        service powered by latest cryptographic algorithms. It
-                        is built using Rust, TypeScript, NodeJS, PostgreSQL and
-                        Kubernetes. It is designed to be horizontally scalable
-                        and fault tolerant.
+                        Hapsy is designed with a focus on user security,
+                        offering a comprehensive authentication and
+                        authorization service for modern applications.
+                        Emphasizing user data integrity and security, Hapsy
+                        employs a blend of cutting-edge cryptographic algorithms
+                        and scalable infrastructure.
                     </p>
-                    <h4>Authentication</h4>
+                    <h4>Core Authentication Mechanisms</h4>
                     <p>
-                        Hapsy uses the latest cryptographic algorithms to ensure
-                        the security of user data. It uses the Argon2id hashing
-                        algorithm to hash user passwords. It uses the JWT
-                        standard to generate and verify tokens. It uses the RSA
-                        algorithm to sign and verify tokens.
+                        A blend of technologies, including Rust, TypeScript,
+                        NodeJS, PostgreSQL, and Kubernetes, powers the system.
+                        The Argon2id hashing algorithm is employed for robust
+                        password security, ensuring that user credentials remain
+                        protected. Additionally, the platform adopts the JWT
+                        standard for token generation and verification, using
+                        the RSA algorithm for enhanced token security.
+                    </p>
+                    <h4>Features and Scalability</h4>
+                    <p>
+                        The system boasts a diverse set of features,
+                        encompassing user registration, email verification,
+                        two-factor authentication, and rate limiting for API
+                        endpoints. Designed with growth in mind, it stands ready
+                        to handle expanding user bases without sacrificing
+                        performance.
                     </p>
                 </ProjectDescription>
             </Project>

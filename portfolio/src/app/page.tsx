@@ -22,7 +22,7 @@ export default function Home() {
             <Header />
             <section
                 className={clsx(
-                    commonStyles.headerContainer,
+                    commonStyles.container,
                     styles.alertHolder,
                     styles.content
                 )}
@@ -31,7 +31,7 @@ export default function Home() {
             </section>
             <section
                 className={clsx(
-                    commonStyles.headerContainer,
+                    commonStyles.container,
                     styles.content,
                     styles.hello
                 )}
@@ -46,7 +46,7 @@ export default function Home() {
                 </h3>
             </section>
             <section
-                className={clsx(commonStyles.headerContainer, styles.content)}
+                className={clsx(commonStyles.container, styles.content)}
             >
                 <div className={styles.projects}>
                     <h2 className={commonStyles.contentTitle}>Projects</h2>
@@ -82,7 +82,7 @@ export default function Home() {
                 </div>
             </section>
             <section
-                className={clsx(commonStyles.headerContainer, styles.content)}
+                className={clsx(commonStyles.container, styles.content)}
             >
                 <div className={styles.socials}>
                     <h2 className={commonStyles.contentTitle}>Socials</h2>

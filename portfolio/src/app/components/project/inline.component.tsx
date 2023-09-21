@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import clsx from 'clsx';
 import ChevronRightIcon from '@/app/icons/chevron-right';
+import Label from '../label/label.component';
 
 interface Props {
     title: string;
@@ -46,24 +47,8 @@ export default function InlineProject({
                                 >
                                     {title}
                                 </h3>
-                                {isNew && (
-                                    <div className={styles.projectLabel}>
-                                        <span
-                                            className={styles.projectLabelInner}
-                                        >
-                                            NEW
-                                        </span>
-                                    </div>
-                                )}
-                                {hasDemo && (
-                                    <div className={clsx(styles.projectLabel, styles.projectLabelGold)}>
-                                        <span
-                                            className={styles.projectLabelInner}
-                                        >
-                                            DEMO
-                                        </span>
-                                    </div>
-                                )}
+                                {isNew && <Label type="normal" label="NEW" />}
+                                {hasDemo && <Label type="gold" label="DEMO" />}
                             </div>
                             <p className={styles.projectDesc}>{description}</p>
                         </div>

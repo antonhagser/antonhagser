@@ -138,14 +138,11 @@ export default function Contact() {
         <>
             <Header />
             <AlertProvider
-                className={commonStyles.headerContainer}
+                className={commonStyles.container}
                 knownAlerts={alerts}
             />
             <section
-                className={clsx(
-                    commonStyles.headerContainer,
-                    styles.contactForm
-                )}
+                className={clsx(commonStyles.container, styles.contactForm)}
             >
                 <h2 className={clsx(commonStyles.contentTitle)}>
                     Get in Touch

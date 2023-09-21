@@ -18,7 +18,7 @@ export default function Projects() {
         <>
             <Header />
             <AlertProvider
-                className={commonStyles.headerContainer}
+                className={commonStyles.container}
                 knownAlerts={[
                     {
                         id: '1',
@@ -27,7 +27,7 @@ export default function Projects() {
                     },
                 ]}
             />
-            <section className={commonStyles.headerContainer}>
+            <section className={commonStyles.container}>
                 <h2 className={commonStyles.contentTitle}>Projects</h2>
                 <ul className={styles.projectsList}>
                     <InlineProject
