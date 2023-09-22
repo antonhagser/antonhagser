@@ -15,8 +15,11 @@ import TechStack from '@/app/components/project/techstack/stack.component';
 import Project from '@/app/components/project/project.component';
 import ProjectHeaderButton from '@/app/components/project/header/button.component';
 
+import hapsy1 from '../../../../public/hapsy-1.png';
+import hapsy2 from '../../../../public/hapsy-2.png';
+
 export default function ElectroSense() {
-    const images: string[] = [];
+    const images = [hapsy2, hapsy1];
 
     return (
         <>
@@ -28,10 +31,10 @@ export default function ElectroSense() {
                         icon="Github"
                         url="https://github.com/antonhagser/auth"
                     />
-                    <ProjectHeaderButton
+                    {/* <ProjectHeaderButton
                         value="Launch Demo"
                         url="/projects/hapsy/demo"
-                    />
+                    /> */}
                 </ProjectHeader>
                 <TechStack>
                     <TechStackItem tech="Rust" />

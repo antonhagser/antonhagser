@@ -22,13 +22,10 @@ export interface AlertProps {
 
 interface Props {
     className?: string;
-    knownAlerts: Alert[];
+    knownAlerts?: Alert[];
 }
 
-export default function AlertProvider({
-    className,
-    knownAlerts,
-}: Props) {
+export default function AlertProvider({ className, knownAlerts = [] }: Props) {
     const [alerts, setAlerts] = useState<Alert[]>(knownAlerts);
 
     useEffect(() => {

@@ -15,8 +15,10 @@ import TechStack from '@/app/components/project/techstack/stack.component';
 import Project from '@/app/components/project/project.component';
 import ProjectHeaderButton from '@/app/components/project/header/button.component';
 
+import portfolio1 from '../../../../public/portfolio-1.png';
+
 export default function PulseDB() {
-    const images: string[] = [];
+    const images = [portfolio1];
 
     return (
         <>

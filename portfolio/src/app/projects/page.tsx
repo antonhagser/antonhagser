@@ -17,16 +17,7 @@ export default function Projects() {
     return (
         <>
             <Header />
-            <AlertProvider
-                className={commonStyles.container}
-                knownAlerts={[
-                    {
-                        id: '1',
-                        alert: 'Projects are currently being added.',
-                        color: 'warning',
-                    },
-                ]}
-            />
+            <AlertProvider className={commonStyles.container} />
             <section className={commonStyles.container}>
                 <h2 className={commonStyles.contentTitle}>Projects</h2>
                 <ul className={styles.projectsList}>
@@ -45,7 +36,7 @@ export default function Projects() {
                     />
                     <InlineProject
                         title="PulseDB"
-                        description="In memory database like redis"
+                        description="In memory database inspired by redis"
                         icon={pulseDBIcon}
                         link="/projects/pulsedb"
                     />
