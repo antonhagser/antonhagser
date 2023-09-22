@@ -41,7 +41,7 @@ export default function Home() {
                     {/* Hej! 👋 */}
                 </h2>
                 <h3 className={styles.helloAboutMe}>
-                    Full-stack developer with expertise in Rust, TypeScript, Go.
+                    Full-stack developer with expertise in Rust, TypeScript, C#.
                     {/* Full-stack utvecklare med expertis inom Rust, TypeScript, Go. */}
                 </h3>
             </section>
