@@ -4,18 +4,18 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
+export function getPathnameWithoutQueryParams(pathname: string) {
+    const index = pathname.indexOf('?');
+    if (index === -1) {
+        return pathname;
+    }
+    return pathname.substring(0, index);
+}
+
 function ReferralInner() {
     const searchParams = useSearchParams();
     const router = useRouter();
     const pathName = usePathname();
-
-    const getPathnameWithoutQueryParams = (pathname: string) => {
-        const index = pathname.indexOf('?');
-        if (index === -1) {
-            return pathname;
-        }
-        return pathname.substring(0, index);
-    };
 
     useEffect(() => {
         // Custom page referral through query params, to track if the website was loaded in by a link from ex. my CV.
@@ -28,7 +28,7 @@ function ReferralInner() {
             const target = searchParams.get('target') as string;
 
             if (ref === 'cv' && target.length > 0) {
-                console.log('Tracking page referral from CV.')
+                console.log('Tracking page referral from CV.');
                 umami.track('page-referral', {
                     ref: 'cv',
                     target,

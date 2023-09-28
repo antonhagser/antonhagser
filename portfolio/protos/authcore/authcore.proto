@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package authcore;
+
+message GetVersionRequest {}
+
+message GetVersionResponse {
+    string version = 1;
+}
+
+message AddApplicationRequest {
+    string application_id = 1;
+}
+
+message AddApplicationResponse {}
+
+message DeleteApplicationRequest {
+    string application_id = 1;
+}
+
+message DeleteApplicationResponse {}
+
+service Platform {
+    rpc GetVersion(GetVersionRequest) returns (GetVersionResponse) {}
+
+    rpc AddApplication(AddApplicationRequest) returns (AddApplicationResponse) {
+    }
+
+    rpc DeleteApplication(DeleteApplicationRequest)
+        returns (DeleteApplicationResponse) {}
+}

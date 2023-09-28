@@ -33,6 +33,7 @@ export default function Projects() {
                         description="Efficient, secure, and user-friendly authentication"
                         icon={authIcon}
                         link="/projects/hapsy"
+                        hasDemo={true}
                     />
                     <InlineProject
                         title="PulseDB"

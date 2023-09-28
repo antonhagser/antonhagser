@@ -31,10 +31,10 @@ export default function ElectroSense() {
                         icon="Github"
                         url="https://github.com/antonhagser/auth"
                     />
-                    {/* <ProjectHeaderButton
+                    <ProjectHeaderButton
                         value="Launch Demo"
-                        url="/projects/hapsy/demo"
-                    /> */}
+                        url="/projects/hapsy/demo/login"
+                    />
                 </ProjectHeader>
                 <TechStack>
                     <TechStackItem tech="Rust" />
