@@ -11,11 +11,6 @@ Experienced with:
 - Tools including **Docker**, **Kubernetes**, **Terraform**, **Git**
 - DevOps practices like **CI/CD**, **Monitoring**, **Logging**
 
-## Currently learning
-
-- **Cloud**: AWS, GCP.
-- **Languages**: C, C++.
-
 ## How to reach me
 
 For collaborations, inquiries, or just a chat, feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/anton-hagser/). You can also drop me a message through the contact form on my [portfolio](https://antonhagser.se/) website. Let's create something amazing together! 🤝
