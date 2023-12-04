@@ -15,6 +15,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
+                {/* Referral logic, event tracking using umami */}
                 <Referral />
                 <main>{children}</main>
             </body>

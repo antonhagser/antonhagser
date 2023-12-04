@@ -45,9 +45,7 @@ export default function Home() {
                     {/* Full-stack utvecklare med expertis inom Rust, TypeScript, Go. */}
                 </h3>
             </section>
-            <section
-                className={clsx(commonStyles.container, styles.content)}
-            >
+            <section className={clsx(commonStyles.container, styles.content)}>
                 <div className={styles.projects}>
                     <h2 className={commonStyles.contentTitle}>Projects</h2>
                     <ul className={styles.projectsList}>
@@ -81,9 +79,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <section
-                className={clsx(commonStyles.container, styles.content)}
-            >
+            <section className={clsx(commonStyles.container, styles.content)}>
                 <div className={styles.socials}>
                     <h2 className={commonStyles.contentTitle}>Socials</h2>
                     <ul className={styles.socialsList}>
