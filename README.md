@@ -13,4 +13,4 @@ Experienced with:
 
 ## How to reach me
 
-For collaborations, inquiries, or just a chat, feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/anton-hagser/). You can also drop me a message through the contact form on my [portfolio](https://antonhagser.se/) website. Let's create something amazing together! 🤝
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/anton-hagser/).
